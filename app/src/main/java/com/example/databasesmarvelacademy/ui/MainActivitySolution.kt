@@ -12,7 +12,7 @@ import com.example.databasesmarvelacademy.viewmodels.MainViewModel
 import com.example.databasesmarvelacademy.viewmodels.MainViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivitySolution : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainViewModel
 
@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /***
-         * Create a val named database who calls the ToDoDao from the Database instance
-         */
+        val database = ToDoDatabase.getDatabase(application).todoDao()
 
         val viewModelFactory = MainViewModelFactory(database)
 
