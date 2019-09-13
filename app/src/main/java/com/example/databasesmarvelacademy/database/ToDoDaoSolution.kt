@@ -7,7 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 
 @Dao
-interface ToDoDao {
+interface ToDoDaoSolution {
 
     @Query("SELECT * from to_dos")
     fun getAllToDos() : LiveData<List<ToDo>>

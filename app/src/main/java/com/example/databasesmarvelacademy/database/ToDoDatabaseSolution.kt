@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
     entities = [ToDo::class],
     version = 1
 )
-abstract class ToDoDatabase : RoomDatabase() {
+abstract class ToDoDatabaseSolution : RoomDatabase() {
     abstract fun todoDao(): ToDoDao
 
     companion object {
