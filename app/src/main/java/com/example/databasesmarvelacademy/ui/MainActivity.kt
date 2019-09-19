@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         /***
          * Create a val named database who calls the ToDoDao from the Database instance
          */
+        val database = ToDoDatabase.getDatabase(application).todoDao()
 
         val viewModelFactory = MainViewModelFactory(database)
 

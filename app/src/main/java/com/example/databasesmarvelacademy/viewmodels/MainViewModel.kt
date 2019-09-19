@@ -17,25 +17,43 @@ class MainViewModel(
     /***
      * Create a val "toDos" that calls the LiveData of all to dos
      */
-
+    val toDos = database.getAllToDos()
 
 
     /***
      * Create a function "insertToDo" that inserts a to do in the database
      */
-
+    fun insertToDo(toDo: ToDo){
+        GlobalScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                database.insert(toDo)
+            }
+        }
+    }
 
 
     /***
      * Create a function "updateToDo" that updates a to do in the database
      */
-
+    fun updateToDo(toDo: ToDo){
+        GlobalScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                database.update(toDo)
+            }
+        }
+    }
 
 
     /***
      * Create a function "deleteAllToDos" that deletes all to dos in the database
      */
-
+    fun deleteAllToDos(){
+        GlobalScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                database.deleteAll()
+            }
+        }
+    }
 
 
 }
