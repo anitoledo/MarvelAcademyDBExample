@@ -1,14 +1,6 @@
 package com.example.databasesmarvelacademy.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
-import com.example.databasesmarvelacademy.database.ToDo
-import com.example.databasesmarvelacademy.database.ToDoDao
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainViewModel(
     val database: ToDoDao

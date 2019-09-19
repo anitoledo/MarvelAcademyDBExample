@@ -6,8 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.databasesmarvelacademy.R
 import com.example.databasesmarvelacademy.adapters.ToDosAdapter
-import com.example.databasesmarvelacademy.database.ToDo
-import com.example.databasesmarvelacademy.database.ToDoDatabase
 import com.example.databasesmarvelacademy.viewmodels.MainViewModel
 import com.example.databasesmarvelacademy.viewmodels.MainViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         /***
          * Create a val named database who calls the ToDoDao from the Database instance
          */
+
 
         val viewModelFactory = MainViewModelFactory(database)
 
