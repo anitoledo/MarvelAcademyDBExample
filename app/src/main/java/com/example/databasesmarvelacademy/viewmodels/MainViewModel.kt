@@ -7,7 +7,7 @@ import com.example.databasesmarvelacademy.database.ToDoDao
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    val database: ToDoDao
+    private val database: ToDoDao
 ) : ViewModel() {
 
     /***
@@ -19,30 +19,24 @@ class MainViewModel(
     /***
      * Create a function "insertToDo" that inserts a to do in the database
      */
-    fun insertToDo(toDo: ToDo){
-        viewModelScope.launch {
-            database.insert(toDo)
-        }
+    fun insertToDo(toDo: ToDo) = viewModelScope.launch {
+        database.insert(toDo)
     }
 
 
     /***
      * Create a function "updateToDo" that updates a to do in the database
      */
-    fun updateToDo(toDo: ToDo){
-        viewModelScope.launch {
-            database.update(toDo)
-        }
+    fun updateToDo(toDo: ToDo)= viewModelScope.launch {
+        database.update(toDo)
     }
 
 
     /***
      * Create a function "deleteAllToDos" that deletes all to dos in the database
      */
-    fun deleteAllToDos(){
-        viewModelScope.launch {
-            database.deleteAll()
-        }
+    fun deleteAllToDos() = viewModelScope.launch {
+        database.deleteAll()
     }
 
 
