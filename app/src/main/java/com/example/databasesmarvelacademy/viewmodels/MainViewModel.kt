@@ -1,14 +1,10 @@
 package com.example.databasesmarvelacademy.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.databasesmarvelacademy.database.ToDo
 import com.example.databasesmarvelacademy.database.ToDoDao
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainViewModel(
     val database: ToDoDao
@@ -24,10 +20,8 @@ class MainViewModel(
      * Create a function "insertToDo" that inserts a to do in the database
      */
     fun insertToDo(toDo: ToDo){
-        GlobalScope.launch(Dispatchers.IO) {
-            withContext(Dispatchers.Main) {
-                database.insert(toDo)
-            }
+        viewModelScope.launch {
+            database.insert(toDo)
         }
     }
 
@@ -36,10 +30,8 @@ class MainViewModel(
      * Create a function "updateToDo" that updates a to do in the database
      */
     fun updateToDo(toDo: ToDo){
-        GlobalScope.launch(Dispatchers.IO) {
-            withContext(Dispatchers.Main) {
-                database.update(toDo)
-            }
+        viewModelScope.launch {
+            database.update(toDo)
         }
     }
 
@@ -48,10 +40,8 @@ class MainViewModel(
      * Create a function "deleteAllToDos" that deletes all to dos in the database
      */
     fun deleteAllToDos(){
-        GlobalScope.launch(Dispatchers.IO) {
-            withContext(Dispatchers.Main) {
-                database.deleteAll()
-            }
+        viewModelScope.launch {
+            database.deleteAll()
         }
     }
 
